@@ -369,10 +369,10 @@ with st.expander("💡 Recommendations", expanded=True):
         st.markdown(f"""
         <div style="padding:1rem 1.25rem; margin-bottom:0.6rem; border: 0.5px solid #e0e0e0; border-radius: 8px;">
           <div style="display:flex; align-items:flex-start; gap:1rem;">
-            <div style="font-family:Georgia, serif; font-size:2rem; color:{C_BLUE}; line-height:1; min-width:2rem;">{num}</div>
+            <div style="font-family:Georgia, serif; font-size:2rem; color:#378ADD; line-height:1; min-width:2rem; text-shadow: 0 0 3px rgba(55,138,221,0.3);">{num}</div>
             <div>
-              <strong style="color:{C_TEXT};">{title}</strong>
-              <p style="font-size:0.85rem; color:{C_MUTED}; margin-top:0.3rem; margin-bottom:0;">{body}</p>
+              <strong>{title}</strong>
+              <p style="font-size:0.85rem; margin-top:0.3rem; margin-bottom:0; opacity:0.85;">{body}</p>
             </div>
           </div>
         </div>
