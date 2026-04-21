@@ -189,7 +189,7 @@ with st.expander("🎤 Speakers", expanded=False):
             y=sp_industries, x=sp_pcts, orientation="h",
             marker_color=C_BLUE, marker_line_width=0,
             text=[f"{p}%" for p in sp_pcts], textposition="outside",
-            textfont=dict(color=C_MUTED, size=10),
+            textfont=dict(color="white", size=11),
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Speakers by Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
@@ -474,4 +474,4 @@ with st.expander("❓ Questions for the Future", expanded=False):
         "What does success look like for the network over the next few years?",
     ]
     for q in questions:
-        st.markdown(f'<div style="padding:0.75rem 1rem; margin-bottom:0.5rem; background-color:#f5f5f5; border-radius:6px; font-size:0.9rem; color:{C_TEXT};">❓ {q}</div>', unsafe_allow_html=True)git 
+        st.markdown(f'<div style="padding:0.75rem 1rem; margin-bottom:0.5rem; background-color:#f5f5f5; border-radius:6px; font-size:0.9rem; color:#1a1a1a;">❓ {q}</div>', unsafe_allow_html=True)
