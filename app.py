@@ -29,18 +29,6 @@ PLOTLY_LAYOUT = {
 # ─── CUSTOM CSS ────────────────────────────────────────────
 st.markdown("""
     <style>
-    :root {
-        --text-primary: #1a1a1a;
-        --text-muted: #7a85a8;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --text-primary: #f0f0f0;
-            --text-muted: #a8b5d1;
-        }
-    }
-    
     .pill {
         display: inline-block;
         padding: 6px 12px;
@@ -65,17 +53,14 @@ st.markdown("""
     .report-section {
         font-size: 14px;
         line-height: 1.6;
-        color: var(--text-primary);
     }
     .report-section h3 {
         margin-top: 0;
         font-size: 16px;
         font-weight: 600;
-        color: var(--text-primary);
     }
     .report-section p {
         margin: 8px 0;
-        color: var(--text-primary);
     }
     .insight-box {
         padding: 12px 14px;
