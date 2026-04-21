@@ -29,6 +29,11 @@ PLOTLY_LAYOUT = {
 # ─── CUSTOM CSS ────────────────────────────────────────────
 st.markdown("""
     <style>
+    /* Mobile-first responsive design */
+    * {
+        box-sizing: border-box;
+    }
+    
     .pill {
         display: inline-block;
         padding: 6px 12px;
@@ -50,24 +55,29 @@ st.markdown("""
         background-color: #EAF3DE;
         color: #3B6D11;
     }
+    
     .report-section {
         font-size: 14px;
         line-height: 1.6;
+        margin-bottom: 1rem;
     }
     .report-section h3 {
         margin-top: 0;
+        margin-bottom: 0.75rem;
         font-size: 16px;
         font-weight: 600;
     }
     .report-section p {
-        margin: 8px 0;
+        margin: 0.5rem 0;
     }
+    
     .insight-box {
         padding: 12px 14px;
         border-radius: 8px;
         border-left: 4px solid;
         font-size: 13px;
-        margin-bottom: 8px;
+        margin-bottom: 1rem;
+        line-height: 1.5;
     }
     .insight-box.blue {
         background-color: #E6F1FB;
@@ -83,6 +93,43 @@ st.markdown("""
         background-color: #EAF3DE;
         border-color: #3B6D11;
         color: #173404;
+    }
+    
+    /* Charts responsive container */
+    .chart-container {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    /* Mobile: Stack all charts vertically */
+    @media (max-width: 768px) {
+        .chart-container {
+            width: 100% !important;
+        }
+        .report-section {
+            font-size: 13px;
+        }
+        .report-section h3 {
+            font-size: 15px;
+        }
+        .insight-box {
+            font-size: 12px;
+            padding: 10px 12px;
+        }
+    }
+    
+    /* Tablet and up: Layout improves */
+    @media (min-width: 769px) {
+        .report-section {
+            font-size: 14px;
+        }
+    }
+    
+    /* Desktop: Full layout */
+    @media (min-width: 1200px) {
+        .report-section {
+            font-size: 14px;
+        }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -180,7 +227,7 @@ with st.expander("🎤 Speakers", expanded=False):
     """, unsafe_allow_html=True)
     
     # Three charts side-by-side
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3, gap="large")
     
     with col1:
         sp_industries = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Data & Analytics", "Cybersecurity", "Nat. Security", "Media/Comms"]
@@ -194,7 +241,7 @@ with st.expander("🎤 Speakers", expanded=False):
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Speakers by Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             xaxis=dict(showticklabels=False, showgrid=False),
-            yaxis=dict(tickfont=dict(color=C_MUTED, size=9), autorange="reversed"),
+            yaxis=dict(tickfont=dict(color="white", size=9), autorange="reversed"),
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -256,7 +303,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
     """, unsafe_allow_html=True)
     
     # Three charts side-by-side
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3, gap="large")
     
     with col1:
         gov_sectors = ["Local Gov", "State Gov", "Federal Gov", "Nonprofit/Advocacy", "Private"]
@@ -330,7 +377,7 @@ with st.expander("🤝 Mentors", expanded=False):
     """, unsafe_allow_html=True)
     
     # Three charts side-by-side
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3, gap="large")
     
     with col1:
         mentor_sectors = ["Private", "Research & Academia", "Nonprofit/Advocacy", "Federal Gov", "Other"]
