@@ -115,6 +115,7 @@ with st.expander("🌐 Overall Network", expanded=True):
           <h3>Overview</h3>
           <p>Paragon's evolving network is a core part of the organization — shaping who fellows learn from, the kinds of projects and partnerships that are possible, and which professional pathways are most visible and accessible.</p>
           <p>This report analyzes Paragon's existing network as of Spring 2026 to identify patterns, strengths, gaps, and opportunities for growth.</p>
+          <p><strong>Network Composition:</strong> Professionals with 10+ years of experience make up the majority of Paragon's network.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -179,6 +180,37 @@ with st.expander("🎤 Speakers", expanded=False):
         )
         st.plotly_chart(fig, use_container_width=True)
 
+    # Speakers By Sector Pie Chart
+    col1, col2 = st.columns(2)
+    with col1:
+        sp_sectors = ["Research & Academia", "Private", "Nonprofit/Advocacy", "Think Tank", "Fed Gov", "State Gov", "Local Gov", "IGO", "Philanthropic"]
+        sp_sector_pcts = [28, 22, 16, 6, 9, 6, 3, 3, 3]
+        fig_sector = go.Figure(go.Pie(
+            labels=sp_sectors, values=sp_sector_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
+            textinfo="percent",
+            textfont=dict(size=10, color="white"),
+        ))
+        fig_sector.update_layout(**PLOTLY_LAYOUT, height=280,
+            title=dict(text="Speakers by Sector", font=dict(color=C_MUTED, size=12)),
+            showlegend=True, legend=dict(font=dict(color=C_MUTED, size=9)))
+        st.plotly_chart(fig_sector, use_container_width=True)
+
+    # Speaker Experience Pie Chart
+    with col2:
+        sp_exp = ["10+ years", "5-9 years", "3-5 years", "1-3 years"]
+        sp_exp_pcts = [72, 19, 6, 3]
+        fig_exp = go.Figure(go.Pie(
+            labels=sp_exp, values=sp_exp_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE],
+            textinfo="percent",
+            textfont=dict(size=11, color="white"),
+        ))
+        fig_exp.update_layout(**PLOTLY_LAYOUT, height=280,
+            title=dict(text="Speaker Experience", font=dict(color=C_MUTED, size=12)),
+            showlegend=True, legend=dict(font=dict(color=C_MUTED, size=10)))
+        st.plotly_chart(fig_exp, use_container_width=True)
+
 # ── GOVERNMENT PARTNERS ──
 with st.expander("🏛️ Government Partners", expanded=False):
     col1, col2 = st.columns(2)
@@ -200,8 +232,41 @@ with st.expander("🏛️ Government Partners", expanded=False):
             textinfo="percent+label",
             textfont=dict(size=10, color="white"),
         ))
-        fig.update_layout(**PLOTLY_LAYOUT, height=260, showlegend=False)
+        fig.update_layout(**PLOTLY_LAYOUT, height=260,
+            title=dict(text="Government Partners by Sector", font=dict(color=C_MUTED, size=12)),
+            showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
+
+    # Government Partner Industry Pie Chart
+    col1, col2 = st.columns(2)
+    with col1:
+        gov_ind = ["Civic/Gov Tech", "AI", "Public Policy", "Data & Analytics", "Privacy", "National Security", "Media/Communications", "Education", "Healthcare/Biotech"]
+        gov_ind_pcts = [37, 19, 15, 7, 7, 4, 4, 4, 4]
+        fig_gov_ind = go.Figure(go.Pie(
+            labels=gov_ind, values=gov_ind_pcts, hole=0.5,
+            marker_colors=[C_GREEN, C_BLUE, C_ORANGE, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
+            textinfo="percent",
+            textfont=dict(size=10, color="white"),
+        ))
+        fig_gov_ind.update_layout(**PLOTLY_LAYOUT, height=280,
+            title=dict(text="Government Partners by Industry", font=dict(color=C_MUTED, size=12)),
+            showlegend=True, legend=dict(font=dict(color=C_MUTED, size=9)))
+        st.plotly_chart(fig_gov_ind, use_container_width=True)
+
+    # Government Partner Experience Pie Chart
+    with col2:
+        gov_exp = ["10+ years", "5-9 years", "3-5 years"]
+        gov_exp_pcts = [74, 22, 4]
+        fig_gov_exp = go.Figure(go.Pie(
+            labels=gov_exp, values=gov_exp_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN],
+            textinfo="percent",
+            textfont=dict(size=11, color="white"),
+        ))
+        fig_gov_exp.update_layout(**PLOTLY_LAYOUT, height=280,
+            title=dict(text="Government Partners by Experience", font=dict(color=C_MUTED, size=12)),
+            showlegend=True, legend=dict(font=dict(color=C_MUTED, size=10)))
+        st.plotly_chart(fig_gov_exp, use_container_width=True)
 
 # ── MENTORS ──
 with st.expander("🤝 Mentors", expanded=False):
@@ -227,6 +292,37 @@ with st.expander("🤝 Mentors", expanded=False):
             legend=dict(font=dict(color=C_MUTED, size=10)))
         st.plotly_chart(fig, use_container_width=True)
 
+    # Mentor Industry Pie Chart
+    col1, col2 = st.columns(2)
+    with col1:
+        mentor_ind = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Cybersecurity", "Energy", "Other"]
+        mentor_ind_pcts = [37, 20, 17, 11, 9, 6, 0]
+        fig_mentor_ind = go.Figure(go.Pie(
+            labels=mentor_ind, values=mentor_ind_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", C_BORDER],
+            textinfo="percent",
+            textfont=dict(size=10, color="white"),
+        ))
+        fig_mentor_ind.update_layout(**PLOTLY_LAYOUT, height=280,
+            title=dict(text="Mentor Industry", font=dict(color=C_MUTED, size=12)),
+            showlegend=True, legend=dict(font=dict(color=C_MUTED, size=9)))
+        st.plotly_chart(fig_mentor_ind, use_container_width=True)
+
+    # Mentor Experience Pie Chart
+    with col2:
+        mentor_exp = ["10+ years", "3-5 years", "1-3 years", "5-9 years"]
+        mentor_exp_pcts = [31, 26, 23, 20]
+        fig_mentor_exp = go.Figure(go.Pie(
+            labels=mentor_exp, values=mentor_exp_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE],
+            textinfo="percent",
+            textfont=dict(size=11, color="white"),
+        ))
+        fig_mentor_exp.update_layout(**PLOTLY_LAYOUT, height=280,
+            title=dict(text="Mentor Experience", font=dict(color=C_MUTED, size=12)),
+            showlegend=True, legend=dict(font=dict(color=C_MUTED, size=10)))
+        st.plotly_chart(fig_mentor_exp, use_container_width=True)
+
 # ── KEY FINDINGS ──
 with st.expander("🔍 Key Findings", expanded=True):
     findings = [
@@ -235,6 +331,7 @@ with st.expander("🔍 Key Findings", expanded=True):
         ("green",  "The mentor network is most balanced", "Strongest distribution across sectors and experience levels. Counterweight to seniority concentration elsewhere."),
         ("blue",   "Government partners are locally concentrated", "67% in local government, creating strong community connections but limited state and federal representation."),
         ("orange", "AI is top across all three roles", "31% of speakers, 37% of mentors, 19% of gov partners — reflecting Paragon's identity in tech policy."),
+        ("green",  "About Speaker Diversity (Research vs. Practitioner)", "Paragon's speaker network is well-aligned with core themes, with strong representation from both research and practitioner backgrounds."),
     ]
     for color, title, body in findings:
         st.markdown(f"""
@@ -289,3 +386,20 @@ with st.expander("💡 Recommendations", expanded=True):
           </div>
         </div>
         """, unsafe_allow_html=True)
+
+# ── QUESTIONS FOR THE FUTURE ──
+with st.expander("❓ Questions for the Future", expanded=False):
+    st.markdown('<div style="color:#7a85a8; margin-bottom:1rem; font-size:0.9rem;">Paragon may consider these questions as it continues developing its network and fellowship models.</div>', unsafe_allow_html=True)
+    
+    questions = [
+        "Does Paragon want each role to continue serving a distinct function, or aim for more balance across roles?",
+        "How can Paragon better engage its alumni network as active members, speakers, mentors, and recruiters?",
+        "Does Paragon want to maintain its strong local government focus, or expand to state and federal levels?",
+        "Which sectors and industries should Paragon prioritize for future relationship building?",
+        "As technology and regulation continue to evolve, which topics and connections will Paragon prioritize?",
+        "How should Paragon balance research and practical implementation in network building?",
+        "How can Paragon better track and balance technical vs. non-technical roles?",
+        "What does success look like for the network over the next few years?",
+    ]
+    for q in questions:
+        st.markdown(f'<div style="padding:0.75rem 1rem; margin-bottom:0.5rem; background-color:#f5f5f5; border-radius:6px; font-size:0.9rem; color:{C_TEXT};">❓ {q}</div>', unsafe_allow_html=True)
