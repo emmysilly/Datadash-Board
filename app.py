@@ -157,9 +157,20 @@ with st.expander("🎤 Speakers", expanded=False):
         st.markdown("""
         <div class="report-section">
           <h3>Speaker Network</h3>
-          <p>By sector, speakers are relatively diversified — strongest in <strong>Research & Academia, Private, and Nonprofit/Advocacy</strong>. Combined government representation is substantial.</p>
-          <p>By industry, <strong>AI, Public Policy, and Civic/Gov Tech</strong> lead, with Legal and Data & Analytics also well represented.</p>
-          <p><strong>Experience:</strong> There is a notable gap in early-career representation among speakers, though the mentor network helps offset this.</p>
+          <p>Speakers are relatively diversified across sectors, with strong representation from Research & Academia, Private, and Nonprofit/Advocacy. Combined government representation (federal, state, and local) is substantial at 18%.</p>
+          <p>By industry, AI, Public Policy, and Civic/Gov Tech lead. However, representation drops off significantly after these core areas — Legal and Data & Analytics are modestly represented, while Cybersecurity, National Security, and Media/Communications have minimal presence.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="insight-box green">
+          <strong>✓ Strengths:</strong> Nearly 72% of speakers have 10+ years of experience, offering long-term career perspectives and exceptional credibility. Strong representation across both research and practitioner backgrounds provides diverse viewpoints.
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="insight-box orange">
+          <strong>⚠ Gaps:</strong> Early-career speakers are significantly underrepresented — only 3% have 1–3 years of experience. This limits relatable entry-level perspectives for fellows still navigating early stages of their careers.
         </div>
         """, unsafe_allow_html=True)
 
@@ -218,8 +229,20 @@ with st.expander("🏛️ Government Partners", expanded=False):
         st.markdown("""
         <div class="report-section">
           <h3>Government Partner Network</h3>
-          <p>Concentrated primarily in <strong>local government</strong>, followed by state and federal levels.</p>
-          <p>By industry, <strong>Civic/Gov Tech</strong> leads, followed by AI and Public Policy. Government partners are predominantly experienced professionals.</p>
+          <p>Government partners are concentrated primarily in local government (67%), followed by state (19%) and federal (4%). The remaining partners have transitioned to nonprofit/advocacy (7%) or private (4%) sectors.</p>
+          <p>By industry, Civic/Gov Tech (37%) has dominant representation, followed by AI (19%) and Public Policy (15%). This concentration reflects Paragon's strong focus on technology and governance alignment.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="insight-box green">
+          <strong>✓ Strengths:</strong> Overwhelming majority (74%) have 10+ years of experience, providing exceptional credibility and depth. Strong local government focus creates opportunities for community-level implementation and real-world project partnerships.
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="insight-box orange">
+          <strong>⚠ Gaps:</strong> Severely limited state and federal government representation — only 19% and 4% respectively. This constrains Paragon's ability to engage with policy decisions at higher levels of government.
         </div>
         """, unsafe_allow_html=True)
 
@@ -276,8 +299,20 @@ with st.expander("🤝 Mentors", expanded=False):
         st.markdown("""
         <div class="report-section">
           <h3>Mentor Network</h3>
-          <p>Most balanced across sectors: <strong>Private, Research & Academia, Nonprofit/Advocacy, and Federal Government</strong> are all well represented.</p>
-          <p>By industry, <strong>AI, Public Policy, and Civic/Gov Tech</strong> lead. This network shows the greatest variety in experience levels across all roles, providing near-peer mentorship opportunities.</p>
+          <p>The mentor network is the most balanced across sectors — Private (34%), Research & Academia (23%), Nonprofit/Advocacy (17%), and Federal Government (14%) are all well represented, providing diverse pathways and backgrounds.</p>
+          <p>By industry, AI (37%), Public Policy (20%), and Civic/Gov Tech (17%) lead, with Legal, Cybersecurity, and Energy also represented. The experience distribution is notably more varied than speakers and government partners.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="insight-box green">
+          <strong>✓ Strengths:</strong> Most balanced network across sectors and experience levels. With 23% at 1–3 years and 26% at 3–5 years, mentors provide near-peer mentorship and relatable guidance. This counterbalances the seniority-heavy speaker and partner networks.
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="insight-box blue">
+          <strong>ℹ Note:</strong> This network is well-distributed and serves as a strong counterweight to gaps in other roles. It successfully bridges the early-career perspective gap left by speaker and government partner networks.
         </div>
         """, unsafe_allow_html=True)
 
