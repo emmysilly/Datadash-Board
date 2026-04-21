@@ -94,17 +94,35 @@ st.markdown('<div style="color:#7a85a8; margin-bottom:1.5rem; font-size:0.9rem;"
 # Quick-nav pills
 st.markdown("""
 <div style="margin-bottom:1.5rem;">
-  <span class="pill pill-blue">Overall Network</span>
-  <span class="pill pill-blue">Speakers</span>
-  <span class="pill pill-blue">Gov Partners</span>
-  <span class="pill pill-blue">Mentors</span>
-  <span class="pill pill-orange">Strengths</span>
-  <span class="pill pill-orange">Weaknesses</span>
-  <span class="pill pill-green">Recommendations</span>
+  <a href="#overall-network" style="text-decoration:none;">
+    <span class="pill pill-blue">Overall Network</span>
+  </a>
+  <a href="#speakers" style="text-decoration:none;">
+    <span class="pill pill-blue">Speakers</span>
+  </a>
+  <a href="#gov-partners" style="text-decoration:none;">
+    <span class="pill pill-blue">Gov Partners</span>
+  </a>
+  <a href="#mentors" style="text-decoration:none;">
+    <span class="pill pill-blue">Mentors</span>
+  </a>
+  <a href="#key-findings" style="text-decoration:none;">
+    <span class="pill pill-orange">Key Findings</span>
+  </a>
+  <a href="#strengths" style="text-decoration:none;">
+    <span class="pill pill-orange">Strengths</span>
+  </a>
+  <a href="#weaknesses" style="text-decoration:none;">
+    <span class="pill pill-orange">Weaknesses</span>
+  </a>
+  <a href="#recommendations" style="text-decoration:none;">
+    <span class="pill pill-green">Recommendations</span>
+  </a>
 </div>
 """, unsafe_allow_html=True)
 
 # ── OVERALL NETWORK ──
+st.markdown('<div id="overall-network"></div>', unsafe_allow_html=True)
 with st.expander("🌐 Overall Network", expanded=True):
     col1, col2 = st.columns([2, 1])
     with col1:
@@ -150,6 +168,7 @@ with st.expander("🌐 Overall Network", expanded=True):
     st.plotly_chart(fig_sec, use_container_width=True)
 
 # ── SPEAKERS ──
+st.markdown('<div id="speakers"></div>', unsafe_allow_html=True)
 with st.expander("🎤 Speakers", expanded=False):
     # Summary text at top
     st.markdown("""
@@ -225,6 +244,7 @@ with st.expander("🎤 Speakers", expanded=False):
         """, unsafe_allow_html=True)
 
 # ── GOVERNMENT PARTNERS ──
+st.markdown('<div id="gov-partners"></div>', unsafe_allow_html=True)
 with st.expander("🏛️ Government Partners", expanded=False):
     # Summary text at top
     st.markdown("""
@@ -298,6 +318,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
         """, unsafe_allow_html=True)
 
 # ── MENTORS ──
+st.markdown('<div id="mentors"></div>', unsafe_allow_html=True)
 with st.expander("🤝 Mentors", expanded=False):
     # Summary text at top
     st.markdown("""
@@ -371,6 +392,7 @@ with st.expander("🤝 Mentors", expanded=False):
         """, unsafe_allow_html=True)
 
 # ── KEY FINDINGS ──
+st.markdown('<div id="key-findings"></div>', unsafe_allow_html=True)
 with st.expander("🔍 Key Findings", expanded=True):
     findings = [
         ("blue",   "AI, Civic/Gov Tech & Public Policy are core strengths", "Consistent across all roles — reflecting Paragon's focus at the intersection of tech, governance, and policy."),
@@ -391,6 +413,7 @@ with st.expander("🔍 Key Findings", expanded=True):
 # ── STRENGTHS & WEAKNESSES ──
 col1, col2 = st.columns(2)
 with col1:
+    st.markdown('<div id="strengths"></div>', unsafe_allow_html=True)
     with st.expander("✅ Network Strengths", expanded=True):
         strengths = [
             "Mentor network highly diversified across sectors and experience levels.",
@@ -403,6 +426,7 @@ with col1:
             st.markdown(f'<div class="insight-box green" style="font-size:0.85rem;">✓ {s}</div>', unsafe_allow_html=True)
 
 with col2:
+    st.markdown('<div id="weaknesses"></div>', unsafe_allow_html=True)
     with st.expander("⚠️ Network Weaknesses", expanded=True):
         weaknesses = [
             "Speaker network overwhelmingly senior — only 3% are 1–3 years experience.",
@@ -414,6 +438,7 @@ with col2:
             st.markdown(f'<div class="insight-box orange" style="font-size:0.85rem;">⚠ {w}</div>', unsafe_allow_html=True)
 
 # ── RECOMMENDATIONS ──
+st.markdown('<div id="recommendations"></div>', unsafe_allow_html=True)
 with st.expander("💡 Recommendations", expanded=True):
     recs = [
         ("1", "Expand early-career speakers", "Increase speakers in 1–3 and 3–5 year range. Mentor network is a natural pipeline."),
