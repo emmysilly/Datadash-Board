@@ -157,9 +157,9 @@ with st.expander("🎤 Speakers", expanded=False):
         st.markdown("""
         <div class="report-section">
           <h3>Speaker Network</h3>
-          <p>By sector, speakers are relatively diversified — strongest in <strong>Research & Academia (28%)</strong>, <strong>Private (22%)</strong>, and <strong>Nonprofit/Advocacy (16%)</strong>. Combined government representation sits at 18%.</p>
-          <p>By industry, AI (31%), Public Policy (25%), and Civic/Gov Tech (16%) lead. Legal and Data & Analytics each at 9%.</p>
-          <p><strong>Experience gap:</strong> 72% of speakers have 10+ years of experience. Only 3% are 1–3 years.</p>
+          <p>By sector, speakers are relatively diversified — strongest in <strong>Research & Academia, Private, and Nonprofit/Advocacy</strong>. Combined government representation is substantial.</p>
+          <p>By industry, <strong>AI, Public Policy, and Civic/Gov Tech</strong> lead, with Legal and Data & Analytics also well represented.</p>
+          <p><strong>Experience:</strong> There is a notable gap in early-career representation among speakers, though the mentor network helps offset this.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -218,8 +218,8 @@ with st.expander("🏛️ Government Partners", expanded=False):
         st.markdown("""
         <div class="report-section">
           <h3>Government Partner Network</h3>
-          <p>Concentrated primarily in <strong>local government (67%)</strong>, followed by state (19%) and federal (4%).</p>
-          <p>By industry, <strong>Civic/Gov Tech (37%)</strong> leads, followed by AI (19%) and Public Policy (15%). 74% have 10+ years experience.</p>
+          <p>Concentrated primarily in <strong>local government</strong>, followed by state and federal levels.</p>
+          <p>By industry, <strong>Civic/Gov Tech</strong> leads, followed by AI and Public Policy. Government partners are predominantly experienced professionals.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -276,8 +276,8 @@ with st.expander("🤝 Mentors", expanded=False):
         st.markdown("""
         <div class="report-section">
           <h3>Mentor Network</h3>
-          <p>Most balanced across sectors: <strong>Private (34%)</strong>, Research & Academia (23%), Nonprofit/Advocacy (17%), Federal Gov (14%).</p>
-          <p>By industry, AI (37%), Public Policy (20%), and Civic/Gov Tech (17%) lead. Shows greatest variety in experience levels across all roles.</p>
+          <p>Most balanced across sectors: <strong>Private, Research & Academia, Nonprofit/Advocacy, and Federal Government</strong> are all well represented.</p>
+          <p>By industry, <strong>AI, Public Policy, and Civic/Gov Tech</strong> lead. This network shows the greatest variety in experience levels across all roles, providing near-peer mentorship opportunities.</p>
         </div>
         """, unsafe_allow_html=True)
 
