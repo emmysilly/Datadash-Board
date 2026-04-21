@@ -146,7 +146,7 @@ with st.expander("🌐 Overall Network", expanded=True):
             hovertemplate="%{label}: %{value}%<extra></extra>",
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=260, showlegend=True,
-            legend=dict(font=dict(color=C_MUTED, size=10), orientation="v", x=1))
+            legend=dict(font=dict(size=11), orientation="v", x=1.05, y=1))
         st.plotly_chart(fig, use_container_width=True)
 
     sectors = ["AI", "Civic/Gov Tech", "Public Policy", "Data & Analytics", "Legal", "Cybersecurity", "National Security", "Other"]
@@ -162,8 +162,8 @@ with st.expander("🌐 Overall Network", expanded=True):
     fig_sec.update_layout(
         **PLOTLY_LAYOUT, height=260,
         title=dict(text="Network by Sector", font=dict(color="#378ADD", size=14), x=0.5, xanchor="center"),
-        xaxis=dict(tickfont=dict(color=C_TEXT, size=11)),
-        yaxis=dict(tickfont=dict(color=C_MUTED), gridcolor=C_BORDER, ticksuffix="%"),
+        xaxis=dict(tickfont=dict(color="white", size=12)),
+        yaxis=dict(tickfont=dict(color="white", size=11), gridcolor=C_BORDER, ticksuffix="%"),
     )
     st.plotly_chart(fig_sec, use_container_width=True)
 
@@ -209,7 +209,7 @@ with st.expander("🎤 Speakers", expanded=False):
         ))
         fig_sector.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Speakers by Sector", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=9), x=1.05, y=0.5))
         st.plotly_chart(fig_sector, use_container_width=True)
 
     with col3:
@@ -223,7 +223,7 @@ with st.expander("🎤 Speakers", expanded=False):
         ))
         fig_exp.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Speaker Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig_exp, use_container_width=True)
     
     # Strengths and Gaps side-by-side at bottom
@@ -269,7 +269,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Gov Partners by Sector", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
@@ -283,7 +283,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
         ))
         fig_gov_ind.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Gov Partners by Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=9), x=1.05, y=0.5))
         st.plotly_chart(fig_gov_ind, use_container_width=True)
 
     with col3:
@@ -297,7 +297,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
         ))
         fig_gov_exp.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Gov Partners by Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig_gov_exp, use_container_width=True)
     
     # Strengths and Gaps side-by-side at bottom
@@ -343,7 +343,7 @@ with st.expander("🤝 Mentors", expanded=False):
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Mentors by Sector", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
@@ -357,7 +357,7 @@ with st.expander("🤝 Mentors", expanded=False):
         ))
         fig_mentor_ind.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Mentor Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=9), x=1.05, y=0.5))
         st.plotly_chart(fig_mentor_ind, use_container_width=True)
 
     with col3:
@@ -371,7 +371,7 @@ with st.expander("🤝 Mentors", expanded=False):
         ))
         fig_mentor_exp.update_layout(**PLOTLY_LAYOUT, height=320,
             title=dict(text="Mentor Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
-            showlegend=False)
+            showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig_mentor_exp, use_container_width=True)
     
     # Strengths and Note side-by-side at bottom
