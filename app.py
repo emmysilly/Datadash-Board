@@ -161,7 +161,7 @@ with st.expander("🌐 Overall Network", expanded=True):
     ))
     fig_sec.update_layout(
         **PLOTLY_LAYOUT, height=260,
-        title=dict(text="Network by Sector", font=dict(color=C_MUTED, size=13)),
+        title=dict(text="Network by Sector", font=dict(color="#378ADD", size=14), x=0.5, xanchor="center"),
         xaxis=dict(tickfont=dict(color=C_TEXT, size=11)),
         yaxis=dict(tickfont=dict(color=C_MUTED), gridcolor=C_BORDER, ticksuffix="%"),
     )
@@ -192,7 +192,7 @@ with st.expander("🎤 Speakers", expanded=False):
             textfont=dict(color=C_MUTED, size=10),
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Speakers by Industry", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Speakers by Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             xaxis=dict(showticklabels=False, showgrid=False),
             yaxis=dict(tickfont=dict(color=C_MUTED, size=9), autorange="reversed"),
         )
@@ -208,7 +208,7 @@ with st.expander("🎤 Speakers", expanded=False):
             textfont=dict(size=9, color="white"),
         ))
         fig_sector.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Speakers by Sector", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Speakers by Sector", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig_sector, use_container_width=True)
 
@@ -222,7 +222,7 @@ with st.expander("🎤 Speakers", expanded=False):
             textfont=dict(size=10, color="white"),
         ))
         fig_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Speaker Experience", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Speaker Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig_exp, use_container_width=True)
     
@@ -268,7 +268,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
             textfont=dict(size=9, color="white"),
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Gov Partners by Sector", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Gov Partners by Sector", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
@@ -282,7 +282,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
             textfont=dict(size=9, color="white"),
         ))
         fig_gov_ind.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Gov Partners by Industry", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Gov Partners by Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig_gov_ind, use_container_width=True)
 
@@ -296,7 +296,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
             textfont=dict(size=10, color="white"),
         ))
         fig_gov_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Gov Partners by Experience", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Gov Partners by Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig_gov_exp, use_container_width=True)
     
@@ -342,7 +342,7 @@ with st.expander("🤝 Mentors", expanded=False):
             textfont=dict(size=9, color="white"),
         ))
         fig.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Mentors by Sector", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Mentors by Sector", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
@@ -356,7 +356,7 @@ with st.expander("🤝 Mentors", expanded=False):
             textfont=dict(size=9, color="white"),
         ))
         fig_mentor_ind.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Mentor Industry", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Mentor Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig_mentor_ind, use_container_width=True)
 
@@ -370,7 +370,7 @@ with st.expander("🤝 Mentors", expanded=False):
             textfont=dict(size=10, color="white"),
         ))
         fig_mentor_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Mentor Experience", font=dict(color=C_MUTED, size=11)),
+            title=dict(text="Mentor Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=False)
         st.plotly_chart(fig_mentor_exp, use_container_width=True)
     
@@ -474,4 +474,4 @@ with st.expander("❓ Questions for the Future", expanded=False):
         "What does success look like for the network over the next few years?",
     ]
     for q in questions:
-        st.markdown(f'<div style="padding:0.75rem 1rem; margin-bottom:0.5rem; background-color:#f5f5f5; border-radius:6px; font-size:0.9rem; color:{C_TEXT};">❓ {q}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="padding:0.75rem 1rem; margin-bottom:0.5rem; background-color:#f5f5f5; border-radius:6px; font-size:0.9rem; color:{C_TEXT};">❓ {q}</div>', unsafe_allow_html=True)git 
