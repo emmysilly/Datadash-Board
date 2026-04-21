@@ -151,215 +151,224 @@ with st.expander("🌐 Overall Network", expanded=True):
 
 # ── SPEAKERS ──
 with st.expander("🎤 Speakers", expanded=False):
-    col_summary, col_charts = st.columns([1.2, 2])
+    # Summary text at top
+    st.markdown("""
+    <div class="report-section">
+      <h3>Speaker Network</h3>
+      <p>Speakers are relatively diversified across sectors, with strong representation from Research & Academia, Private, and Nonprofit/Advocacy. Combined government representation (federal, state, and local) is substantial at 18%.</p>
+      <p>By industry, AI, Public Policy, and Civic/Gov Tech lead. However, representation drops off significantly after these core areas — Legal and Data & Analytics are modestly represented, while Cybersecurity, National Security, and Media/Communications have minimal presence.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    with col_summary:
-        st.markdown("""
-        <div class="report-section">
-          <h3>Speaker Network</h3>
-          <p>Speakers are relatively diversified across sectors, with strong representation from Research & Academia, Private, and Nonprofit/Advocacy. Combined government representation (federal, state, and local) is substantial at 18%.</p>
-          <p>By industry, AI, Public Policy, and Civic/Gov Tech lead. However, representation drops off significantly after these core areas — Legal and Data & Analytics are modestly represented, while Cybersecurity, National Security, and Media/Communications have minimal presence.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
+    # Three charts side-by-side
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        sp_industries = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Data & Analytics", "Cybersecurity", "Nat. Security", "Media/Comms"]
+        sp_pcts = [31, 25, 16, 9, 9, 3, 3, 3]
+        fig = go.Figure(go.Bar(
+            y=sp_industries, x=sp_pcts, orientation="h",
+            marker_color=C_BLUE, marker_line_width=0,
+            text=[f"{p}%" for p in sp_pcts], textposition="outside",
+            textfont=dict(color=C_MUTED, size=10),
+        ))
+        fig.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Speakers by Industry", font=dict(color=C_MUTED, size=11)),
+            xaxis=dict(showticklabels=False, showgrid=False),
+            yaxis=dict(tickfont=dict(color=C_MUTED, size=9), autorange="reversed"),
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        sp_sectors = ["Research & Academia", "Private", "Nonprofit/Advocacy", "Think Tank", "Fed Gov", "State Gov", "Local Gov", "IGO", "Philanthropic"]
+        sp_sector_pcts = [28, 22, 16, 6, 9, 6, 3, 3, 3]
+        fig_sector = go.Figure(go.Pie(
+            labels=sp_sectors, values=sp_sector_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
+            textinfo="percent",
+            textfont=dict(size=9, color="white"),
+        ))
+        fig_sector.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Speakers by Sector", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig_sector, use_container_width=True)
+
+    with col3:
+        sp_exp = ["10+ years", "5-9 years", "3-5 years", "1-3 years"]
+        sp_exp_pcts = [72, 19, 6, 3]
+        fig_exp = go.Figure(go.Pie(
+            labels=sp_exp, values=sp_exp_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE],
+            textinfo="percent",
+            textfont=dict(size=10, color="white"),
+        ))
+        fig_exp.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Speaker Experience", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig_exp, use_container_width=True)
+    
+    # Strengths and Gaps side-by-side at bottom
+    col_strength, col_gap = st.columns(2)
+    
+    with col_strength:
         st.markdown("""
         <div class="insight-box green">
           <strong>✓ Strengths:</strong> Nearly 72% of speakers have 10+ years of experience, offering long-term career perspectives and exceptional credibility. Strong representation across both research and practitioner backgrounds provides diverse viewpoints.
         </div>
         """, unsafe_allow_html=True)
-        
+    
+    with col_gap:
         st.markdown("""
         <div class="insight-box orange">
           <strong>⚠ Gaps:</strong> Early-career speakers are significantly underrepresented — only 3% have 1–3 years of experience. This limits relatable entry-level perspectives for fellows still navigating early stages of their careers.
         </div>
         """, unsafe_allow_html=True)
 
-    with col_charts:
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            sp_industries = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Data & Analytics", "Cybersecurity", "Nat. Security", "Media/Comms"]
-            sp_pcts = [31, 25, 16, 9, 9, 3, 3, 3]
-            fig = go.Figure(go.Bar(
-                y=sp_industries, x=sp_pcts, orientation="h",
-                marker_color=C_BLUE, marker_line_width=0,
-                text=[f"{p}%" for p in sp_pcts], textposition="outside",
-                textfont=dict(color=C_MUTED, size=10),
-            ))
-            fig.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Speakers by Industry", font=dict(color=C_MUTED, size=11)),
-                xaxis=dict(showticklabels=False, showgrid=False),
-                yaxis=dict(tickfont=dict(color=C_MUTED, size=9), autorange="reversed"),
-            )
-            st.plotly_chart(fig, use_container_width=True)
-
-        with col2:
-            sp_sectors = ["Research & Academia", "Private", "Nonprofit/Advocacy", "Think Tank", "Fed Gov", "State Gov", "Local Gov", "IGO", "Philanthropic"]
-            sp_sector_pcts = [28, 22, 16, 6, 9, 6, 3, 3, 3]
-            fig_sector = go.Figure(go.Pie(
-                labels=sp_sectors, values=sp_sector_pcts, hole=0.5,
-                marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
-                textinfo="percent",
-                textfont=dict(size=9, color="white"),
-            ))
-            fig_sector.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Speakers by Sector", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig_sector, use_container_width=True)
-
-        with col3:
-            sp_exp = ["10+ years", "5-9 years", "3-5 years", "1-3 years"]
-            sp_exp_pcts = [72, 19, 6, 3]
-            fig_exp = go.Figure(go.Pie(
-                labels=sp_exp, values=sp_exp_pcts, hole=0.5,
-                marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE],
-                textinfo="percent",
-                textfont=dict(size=10, color="white"),
-            ))
-            fig_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Speaker Experience", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig_exp, use_container_width=True)
-
 # ── GOVERNMENT PARTNERS ──
 with st.expander("🏛️ Government Partners", expanded=False):
-    col_summary, col_charts = st.columns([1.2, 2])
+    # Summary text at top
+    st.markdown("""
+    <div class="report-section">
+      <h3>Government Partner Network</h3>
+      <p>Government partners are concentrated primarily in local government (67%), followed by state (19%) and federal (4%). The remaining partners have transitioned to nonprofit/advocacy (7%) or private (4%) sectors.</p>
+      <p>By industry, Civic/Gov Tech (37%) has dominant representation, followed by AI (19%) and Public Policy (15%). This concentration reflects Paragon's strong focus on technology and governance alignment.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    with col_summary:
-        st.markdown("""
-        <div class="report-section">
-          <h3>Government Partner Network</h3>
-          <p>Government partners are concentrated primarily in local government (67%), followed by state (19%) and federal (4%). The remaining partners have transitioned to nonprofit/advocacy (7%) or private (4%) sectors.</p>
-          <p>By industry, Civic/Gov Tech (37%) has dominant representation, followed by AI (19%) and Public Policy (15%). This concentration reflects Paragon's strong focus on technology and governance alignment.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
+    # Three charts side-by-side
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        gov_sectors = ["Local Gov", "State Gov", "Federal Gov", "Nonprofit/Advocacy", "Private"]
+        gov_pcts = [67, 19, 4, 7, 4]
+        fig = go.Figure(go.Pie(
+            labels=gov_sectors, values=gov_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE, "#ffb85b"],
+            textinfo="percent",
+            textfont=dict(size=9, color="white"),
+        ))
+        fig.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Gov Partners by Sector", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        gov_ind = ["Civic/Gov Tech", "AI", "Public Policy", "Data & Analytics", "Privacy", "National Security", "Media/Communications", "Education", "Healthcare/Biotech"]
+        gov_ind_pcts = [37, 19, 15, 7, 7, 4, 4, 4, 4]
+        fig_gov_ind = go.Figure(go.Pie(
+            labels=gov_ind, values=gov_ind_pcts, hole=0.5,
+            marker_colors=[C_GREEN, C_BLUE, C_ORANGE, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
+            textinfo="percent",
+            textfont=dict(size=9, color="white"),
+        ))
+        fig_gov_ind.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Gov Partners by Industry", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig_gov_ind, use_container_width=True)
+
+    with col3:
+        gov_exp = ["10+ years", "5-9 years", "3-5 years"]
+        gov_exp_pcts = [74, 22, 4]
+        fig_gov_exp = go.Figure(go.Pie(
+            labels=gov_exp, values=gov_exp_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN],
+            textinfo="percent",
+            textfont=dict(size=10, color="white"),
+        ))
+        fig_gov_exp.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Gov Partners by Experience", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig_gov_exp, use_container_width=True)
+    
+    # Strengths and Gaps side-by-side at bottom
+    col_strength, col_gap = st.columns(2)
+    
+    with col_strength:
         st.markdown("""
         <div class="insight-box green">
           <strong>✓ Strengths:</strong> Overwhelming majority (74%) have 10+ years of experience, providing exceptional credibility and depth. Strong local government focus creates opportunities for community-level implementation and real-world project partnerships.
         </div>
         """, unsafe_allow_html=True)
-        
+    
+    with col_gap:
         st.markdown("""
         <div class="insight-box orange">
           <strong>⚠ Gaps:</strong> Severely limited state and federal government representation — only 19% and 4% respectively. This constrains Paragon's ability to engage with policy decisions at higher levels of government.
         </div>
         """, unsafe_allow_html=True)
 
-    with col_charts:
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            gov_sectors = ["Local Gov", "State Gov", "Federal Gov", "Nonprofit/Advocacy", "Private"]
-            gov_pcts = [67, 19, 4, 7, 4]
-            fig = go.Figure(go.Pie(
-                labels=gov_sectors, values=gov_pcts, hole=0.5,
-                marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE, "#ffb85b"],
-                textinfo="percent",
-                textfont=dict(size=9, color="white"),
-            ))
-            fig.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Gov Partners by Sector", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
-
-        with col2:
-            gov_ind = ["Civic/Gov Tech", "AI", "Public Policy", "Data & Analytics", "Privacy", "National Security", "Media/Communications", "Education", "Healthcare/Biotech"]
-            gov_ind_pcts = [37, 19, 15, 7, 7, 4, 4, 4, 4]
-            fig_gov_ind = go.Figure(go.Pie(
-                labels=gov_ind, values=gov_ind_pcts, hole=0.5,
-                marker_colors=[C_GREEN, C_BLUE, C_ORANGE, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
-                textinfo="percent",
-                textfont=dict(size=9, color="white"),
-            ))
-            fig_gov_ind.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Gov Partners by Industry", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig_gov_ind, use_container_width=True)
-
-        with col3:
-            gov_exp = ["10+ years", "5-9 years", "3-5 years"]
-            gov_exp_pcts = [74, 22, 4]
-            fig_gov_exp = go.Figure(go.Pie(
-                labels=gov_exp, values=gov_exp_pcts, hole=0.5,
-                marker_colors=[C_BLUE, C_ORANGE, C_GREEN],
-                textinfo="percent",
-                textfont=dict(size=10, color="white"),
-            ))
-            fig_gov_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Gov Partners by Experience", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig_gov_exp, use_container_width=True)
-
 # ── MENTORS ──
 with st.expander("🤝 Mentors", expanded=False):
-    col_summary, col_charts = st.columns([1.2, 2])
+    # Summary text at top
+    st.markdown("""
+    <div class="report-section">
+      <h3>Mentor Network</h3>
+      <p>The mentor network is the most balanced across sectors — Private (34%), Research & Academia (23%), Nonprofit/Advocacy (17%), and Federal Government (14%) are all well represented, providing diverse pathways and backgrounds.</p>
+      <p>By industry, AI (37%), Public Policy (20%), and Civic/Gov Tech (17%) lead, with Legal, Cybersecurity, and Energy also represented. The experience distribution is notably more varied than speakers and government partners.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    with col_summary:
-        st.markdown("""
-        <div class="report-section">
-          <h3>Mentor Network</h3>
-          <p>The mentor network is the most balanced across sectors — Private (34%), Research & Academia (23%), Nonprofit/Advocacy (17%), and Federal Government (14%) are all well represented, providing diverse pathways and backgrounds.</p>
-          <p>By industry, AI (37%), Public Policy (20%), and Civic/Gov Tech (17%) lead, with Legal, Cybersecurity, and Energy also represented. The experience distribution is notably more varied than speakers and government partners.</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
+    # Three charts side-by-side
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        mentor_sectors = ["Private", "Research & Academia", "Nonprofit/Advocacy", "Federal Gov", "Other"]
+        mentor_pcts = [34, 23, 17, 14, 12]
+        fig = go.Figure(go.Pie(
+            labels=mentor_sectors, values=mentor_pcts, hole=0.5,
+            marker_colors=[C_ORANGE, C_BLUE, C_GREEN, C_PURPLE, C_BORDER],
+            textinfo="percent",
+            textfont=dict(size=9, color="white"),
+        ))
+        fig.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Mentors by Sector", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        mentor_ind = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Cybersecurity", "Energy", "Other"]
+        mentor_ind_pcts = [37, 20, 17, 11, 9, 6, 0]
+        fig_mentor_ind = go.Figure(go.Pie(
+            labels=mentor_ind, values=mentor_ind_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", C_BORDER],
+            textinfo="percent",
+            textfont=dict(size=9, color="white"),
+        ))
+        fig_mentor_ind.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Mentor Industry", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig_mentor_ind, use_container_width=True)
+
+    with col3:
+        mentor_exp = ["10+ years", "3-5 years", "1-3 years", "5-9 years"]
+        mentor_exp_pcts = [31, 26, 23, 20]
+        fig_mentor_exp = go.Figure(go.Pie(
+            labels=mentor_exp, values=mentor_exp_pcts, hole=0.5,
+            marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE],
+            textinfo="percent",
+            textfont=dict(size=10, color="white"),
+        ))
+        fig_mentor_exp.update_layout(**PLOTLY_LAYOUT, height=320,
+            title=dict(text="Mentor Experience", font=dict(color=C_MUTED, size=11)),
+            showlegend=False)
+        st.plotly_chart(fig_mentor_exp, use_container_width=True)
+    
+    # Strengths and Note side-by-side at bottom
+    col_strength, col_note = st.columns(2)
+    
+    with col_strength:
         st.markdown("""
         <div class="insight-box green">
           <strong>✓ Strengths:</strong> Most balanced network across sectors and experience levels. With 23% at 1–3 years and 26% at 3–5 years, mentors provide near-peer mentorship and relatable guidance. This counterbalances the seniority-heavy speaker and partner networks.
         </div>
         """, unsafe_allow_html=True)
-        
+    
+    with col_note:
         st.markdown("""
         <div class="insight-box blue">
           <strong>ℹ Note:</strong> This network is well-distributed and serves as a strong counterweight to gaps in other roles. It successfully bridges the early-career perspective gap left by speaker and government partner networks.
         </div>
         """, unsafe_allow_html=True)
-
-    with col_charts:
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            mentor_sectors = ["Private", "Research & Academia", "Nonprofit/Advocacy", "Federal Gov", "Other"]
-            mentor_pcts = [34, 23, 17, 14, 12]
-            fig = go.Figure(go.Pie(
-                labels=mentor_sectors, values=mentor_pcts, hole=0.5,
-                marker_colors=[C_ORANGE, C_BLUE, C_GREEN, C_PURPLE, C_BORDER],
-                textinfo="percent",
-                textfont=dict(size=9, color="white"),
-            ))
-            fig.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Mentors by Sector", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig, use_container_width=True)
-
-        with col2:
-            mentor_ind = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Cybersecurity", "Energy", "Other"]
-            mentor_ind_pcts = [37, 20, 17, 11, 9, 6, 0]
-            fig_mentor_ind = go.Figure(go.Pie(
-                labels=mentor_ind, values=mentor_ind_pcts, hole=0.5,
-                marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", C_BORDER],
-                textinfo="percent",
-                textfont=dict(size=9, color="white"),
-            ))
-            fig_mentor_ind.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Mentor Industry", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig_mentor_ind, use_container_width=True)
-
-        with col3:
-            mentor_exp = ["10+ years", "3-5 years", "1-3 years", "5-9 years"]
-            mentor_exp_pcts = [31, 26, 23, 20]
-            fig_mentor_exp = go.Figure(go.Pie(
-                labels=mentor_exp, values=mentor_exp_pcts, hole=0.5,
-                marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE],
-                textinfo="percent",
-                textfont=dict(size=10, color="white"),
-            ))
-            fig_mentor_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-                title=dict(text="Mentor Experience", font=dict(color=C_MUTED, size=11)),
-                showlegend=False)
-            st.plotly_chart(fig_mentor_exp, use_container_width=True)
 
 # ── KEY FINDINGS ──
 with st.expander("🔍 Key Findings", expanded=True):
