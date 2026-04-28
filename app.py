@@ -181,6 +181,98 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# ── EXECUTIVE SUMMARY ──
+st.markdown('<div id="executive-summary"></div>', unsafe_allow_html=True)
+with st.expander("📊 Network Overview: Strengths & Priorities", expanded=True):
+    st.markdown("""
+    <div class="report-section">
+      <p>Paragon's network is a defining asset, strong and well-aligned with the organization's mission. Here's what's working, and where to focus next.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Network size metrics
+    st.markdown("### Network Size")
+    col1, col2, col3 = st.columns(3, gap="large")
+    
+    with col1:
+        st.metric(label="Speakers", value="32", delta="Research & Academia (28%)")
+    
+    with col2:
+        st.metric(label="Government Partners", value="38", delta="Local Gov (67%)")
+    
+    with col3:
+        st.metric(label="Mentors", value="35", delta="Private (34%)")
+    
+    st.divider()
+    
+    # Strengths
+    st.markdown("### ✅ Top 3 Strengths")
+    col1, col2, col3 = st.columns(3, gap="large")
+    
+    with col1:
+        st.markdown("""
+        <div class="insight-box green">
+          <strong>Strong Focus</strong><br>
+          AI, Policy, and Civic/Gov Tech are consistently represented across all three roles. This creates a cohesive network aligned with Paragon's mission.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div class="insight-box green">
+          <strong>Credibility & Depth</strong><br>
+          72% of speakers and 74% of gov partners have 10+ years experience. This brings authority, expertise, and long-term perspective to the network.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown("""
+        <div class="insight-box green">
+          <strong>Local Implementation</strong><br>
+          67% of government partners work in local government. This creates strong community-level connections and real-world project opportunities.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.divider()
+    
+    # Gaps
+    st.markdown("### ⚠️ Critical Gaps to Address")
+    col1, col2, col3 = st.columns(3, gap="large")
+    
+    with col1:
+        st.markdown("""
+        <div class="insight-box orange">
+          <strong>Early-Career Gap</strong><br>
+          Only 3% of speakers have 1-3 years experience. This limits relatable perspectives for fellows starting their careers. Mentors fill this somewhat (23%), but speakers are more visible.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div class="insight-box orange">
+          <strong>Limited Sector Diversity</strong><br>
+          Underrepresented areas include Healthcare/Biotech, Cybersecurity, National Security, Legal, and Media. This narrows the range of conversations and career paths visible to fellows.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown("""
+        <div class="insight-box orange">
+          <strong>State & Federal Gap</strong><br>
+          Only 23% of gov partners work at state or federal levels. This limits exposure to larger-scale policy work and higher-level government connections.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.divider()
+    
+    # Mentor advantage
+    st.markdown("### 💡 The Mentor Advantage")
+    st.markdown("""
+    <div class="insight-box blue">
+      <strong>A Counterweight:</strong> While speakers and government partners skew heavily senior, mentors provide better balance. 23% have 1-3 years experience, 26% have 3-5 years. This near-peer perspective offers relatable guidance that complements the expertise-heavy speaker network.
+    </div>
+    """, unsafe_allow_html=True)
+
 # ── OVERALL NETWORK ──
 st.markdown('<div id="overall-network"></div>', unsafe_allow_html=True)
 with st.expander("🌐 Overall Network", expanded=True):
@@ -189,7 +281,7 @@ with st.expander("🌐 Overall Network", expanded=True):
         st.markdown("""
         <div class="report-section">
           <h3>Overview</h3>
-          <p>Paragon's evolving network is a core part of the organization — shaping who fellows learn from, the kinds of projects and partnerships that are possible, and which professional pathways are most visible and accessible.</p>
+          <p>Paragon's evolving network is a core part of the organization ,  shaping who fellows learn from, the kinds of projects and partnerships that are possible, and which professional pathways are most visible and accessible.</p>
           <p>This report analyzes Paragon's existing network as of Spring 2026 to identify patterns, strengths, gaps, and opportunities for growth.</p>
           <p><strong>Network Composition:</strong> Professionals with 10+ years of experience make up the majority of Paragon's network.</p>
         </div>
@@ -236,7 +328,7 @@ with st.expander("🎤 Speakers", expanded=False):
     <div class="report-section">
       <h3>Speaker Network</h3>
       <p>Speakers are relatively diversified across sectors, with strong representation from Research & Academia, Private, and Nonprofit/Advocacy. Combined government representation (federal, state, and local) is substantial at 18%.</p>
-      <p>By industry, AI, Public Policy, and Civic/Gov Tech lead. However, representation drops off significantly after these core areas — Legal and Data & Analytics are modestly represented, while Cybersecurity, National Security, and Media/Communications have minimal presence.</p>
+      <p>By industry, AI, Public Policy, and Civic/Gov Tech lead. However, representation drops off significantly after these core areas ,  Legal and Data & Analytics are modestly represented, while Cybersecurity, National Security, and Media/Communications have minimal presence.</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -302,7 +394,7 @@ with st.expander("🎤 Speakers", expanded=False):
     with col_gap:
         st.markdown("""
         <div class="insight-box orange">
-          <strong>⚠ Gaps:</strong> Early-career speakers are significantly underrepresented — only 3% have 1–3 years of experience. This limits relatable entry-level perspectives for fellows still navigating early stages of their careers.
+          <strong>⚠ Gaps:</strong> Early-career speakers are significantly underrepresented ,  only 3% have 1–3 years of experience. This limits relatable entry-level perspectives for fellows still navigating early stages of their careers.
         </div>
         """, unsafe_allow_html=True)
 
@@ -379,7 +471,7 @@ with st.expander("🏛️ Government Partners", expanded=False):
     with col_gap:
         st.markdown("""
         <div class="insight-box orange">
-          <strong>⚠ Gaps:</strong> Severely limited state and federal government representation — only 19% and 4% respectively. This constrains Paragon's ability to engage with policy decisions at higher levels of government.
+          <strong>⚠ Gaps:</strong> Severely limited state and federal government representation ,  only 19% and 4% respectively. This constrains Paragon's ability to engage with policy decisions at higher levels of government.
         </div>
         """, unsafe_allow_html=True)
 
@@ -390,7 +482,7 @@ with st.expander("🤝 Mentors", expanded=False):
     st.markdown("""
     <div class="report-section">
       <h3>Mentor Network</h3>
-      <p>The mentor network is the most balanced across sectors — Private (34%), Research & Academia (23%), Nonprofit/Advocacy (17%), and Federal Government (14%) are all well represented, providing diverse pathways and backgrounds.</p>
+      <p>The mentor network is the most balanced across sectors ,  Private (34%), Research & Academia (23%), Nonprofit/Advocacy (17%), and Federal Government (14%) are all well represented, providing diverse pathways and backgrounds.</p>
       <p>By industry, AI (37%), Public Policy (20%), and Civic/Gov Tech (17%) lead, with Legal, Cybersecurity, and Energy also represented. The experience distribution is notably more varied than speakers and government partners.</p>
     </div>
     """, unsafe_allow_html=True)
@@ -464,11 +556,11 @@ with st.expander("🤝 Mentors", expanded=False):
 st.markdown('<div id="key-findings"></div>', unsafe_allow_html=True)
 with st.expander("🔍 Key Findings", expanded=True):
     findings = [
-        ("blue",   "AI, Civic/Gov Tech & Public Policy are core strengths", "Consistent across all roles — reflecting Paragon's focus at the intersection of tech, governance, and policy."),
+        ("blue",   "AI, Civic/Gov Tech & Public Policy are core strengths", "Consistent across all roles ,  reflecting Paragon's focus at the intersection of tech, governance, and policy."),
         ("orange", "Seniority defines the network", "72% of speakers and 74% of gov partners have 10+ years. Strong credibility, but a gap in early-career perspective."),
         ("green",  "The mentor network is most balanced", "Strongest distribution across sectors and experience levels. Counterweight to seniority concentration elsewhere."),
         ("blue",   "Government partners are locally concentrated", "67% in local government, creating strong community connections but limited state and federal representation."),
-        ("orange", "AI is top across all three roles", "31% of speakers, 37% of mentors, 19% of gov partners — reflecting Paragon's identity in tech policy."),
+        ("orange", "AI is top across all three roles", "31% of speakers, 37% of mentors, 19% of gov partners ,  reflecting Paragon's identity in tech policy."),
         ("green",  "About Speaker Diversity (Research vs. Practitioner)", "Paragon's speaker network is well-aligned with core themes, with strong representation from both research and practitioner backgrounds."),
     ]
     for color, title, body in findings:
@@ -486,7 +578,7 @@ with col1:
     with st.expander("✅ Network Strengths", expanded=True):
         strengths = [
             "Mentor network highly diversified across sectors and experience levels.",
-            "72% speakers and 74% gov partners are 10+ year veterans — exceptional credibility.",
+            "72% speakers and 74% gov partners are 10+ year veterans ,  exceptional credibility.",
             "Strong identity in AI, Policy, and Civic/Gov Tech across all roles.",
             "Gov partner network especially strong in local government.",
             "Each role contributes distinct value to the ecosystem.",
@@ -498,7 +590,7 @@ with col2:
     st.markdown('<div id="weaknesses"></div>', unsafe_allow_html=True)
     with st.expander("⚠️ Network Weaknesses", expanded=True):
         weaknesses = [
-            "Speaker network overwhelmingly senior — only 3% are 1–3 years experience.",
+            "Speaker network overwhelmingly senior ,  only 3% are 1–3 years experience.",
             "Limited presence in Healthcare, Cybersecurity, National Security, Legal, Media.",
             "Gap in mid-career representation across all roles.",
             "Early-career perspective mostly siloed in mentoring.",
