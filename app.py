@@ -187,7 +187,7 @@ with st.expander("🌐 Overall Network", expanded=True):
         pcts = [32, 14, 11, 9, 9, 9, 16]
         fig = go.Figure(go.Pie(
             labels=industries, values=pcts, hole=0.55,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", \"#6b9a9a\"],
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#6b9a9a"],
             textinfo="percent",
             textfont=dict(size=11, color="white"),
             hovertemplate="%{label}: %{value}%<extra></extra>",
@@ -200,7 +200,7 @@ with st.expander("🌐 Overall Network", expanded=True):
     sector_pcts = [19, 17, 12, 8, 7, 6, 5, 26]
     fig_sec = go.Figure(go.Bar(
         x=sectors, y=sector_pcts,
-        marker_color=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", \"#6b9a9a\"],
+        marker_color=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#6b9a9a"],
         marker_line_width=0,
         text=[f"{p}%" for p in sector_pcts],
         textposition="outside",
@@ -384,7 +384,7 @@ with st.expander("🤝 Mentors", expanded=False):
         mentor_pcts = [34, 23, 17, 14, 12]
         fig = go.Figure(go.Pie(
             labels=mentor_sectors, values=mentor_pcts, hole=0.5,
-            marker_colors=[C_ORANGE, C_BLUE, C_GREEN, C_PURPLE, \"#6b9a9a\"],
+            marker_colors=[C_ORANGE, C_BLUE, C_GREEN, C_PURPLE, "#6b9a9a"],
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
@@ -398,7 +398,7 @@ with st.expander("🤝 Mentors", expanded=False):
         mentor_ind_pcts = [37, 20, 17, 11, 9, 6, 0]
         fig_mentor_ind = go.Figure(go.Pie(
             labels=mentor_ind, values=mentor_ind_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", \"#6b9a9a\"],
+            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#6b9a9a"],
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
