@@ -26,6 +26,19 @@ PLOTLY_LAYOUT = {
     "margin": {"l": 0, "r": 0, "t": 30, "b": 0},
 }
 
+# ─── COLOR PALETTE (for consistent ordering) ────────────────
+COLOR_PALETTE = [C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1", "#6b9a9a"]
+
+# ─── HELPER FUNCTION: Sort data by value & assign colors ────
+def sort_by_value(labels, values):
+    """Sort labels and values by value (descending), return with consistent colors."""
+    pairs = list(zip(labels, values))
+    pairs.sort(key=lambda x: x[1], reverse=True)
+    sorted_labels = [p[0] for p in pairs]
+    sorted_values = [p[1] for p in pairs]
+    sorted_colors = COLOR_PALETTE[:len(sorted_labels)]
+    return sorted_labels, sorted_values, sorted_colors
+
 # ─── CUSTOM CSS ────────────────────────────────────────────
 st.markdown("""
     <style>
@@ -185,9 +198,10 @@ with st.expander("🌐 Overall Network", expanded=True):
     with col2:
         industries = ["Gov Partners", "Private", "AI", "Public Policy", "Nonprofit/Advocacy", "Research & Academia", "Other"]
         pcts = [32, 14, 11, 9, 9, 9, 16]
+        industries, pcts, colors = sort_by_value(industries, pcts)
         fig = go.Figure(go.Pie(
             labels=industries, values=pcts, hole=0.55,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#6b9a9a"],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=11, color="white"),
             hovertemplate="%{label}: %{value}%<extra></extra>",
@@ -248,9 +262,10 @@ with st.expander("🎤 Speakers", expanded=False):
     with col2:
         sp_sectors = ["Research & Academia", "Private", "Nonprofit/Advocacy", "Think Tank", "Fed Gov", "State Gov", "Local Gov", "IGO", "Philanthropic"]
         sp_sector_pcts = [28, 22, 16, 6, 9, 6, 3, 3, 3]
+        sp_sectors, sp_sector_pcts, colors = sort_by_value(sp_sectors, sp_sector_pcts)
         fig_sector = go.Figure(go.Pie(
             labels=sp_sectors, values=sp_sector_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
@@ -262,9 +277,10 @@ with st.expander("🎤 Speakers", expanded=False):
     with col3:
         sp_exp = ["10+ years", "5-9 years", "3-5 years", "1-3 years"]
         sp_exp_pcts = [72, 19, 6, 3]
+        sp_exp, sp_exp_pcts, colors = sort_by_value(sp_exp, sp_exp_pcts)
         fig_exp = go.Figure(go.Pie(
             labels=sp_exp, values=sp_exp_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=10, color="white"),
         ))
@@ -308,9 +324,10 @@ with st.expander("🏛️ Government Partners", expanded=False):
     with col1:
         gov_sectors = ["Local Gov", "State Gov", "Federal Gov", "Nonprofit/Advocacy", "Private"]
         gov_pcts = [67, 19, 4, 7, 4]
+        gov_sectors, gov_pcts, colors = sort_by_value(gov_sectors, gov_pcts)
         fig = go.Figure(go.Pie(
             labels=gov_sectors, values=gov_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE, "#ffb85b"],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
@@ -322,9 +339,10 @@ with st.expander("🏛️ Government Partners", expanded=False):
     with col2:
         gov_ind = ["Civic/Gov Tech", "AI", "Public Policy", "Data & Analytics", "Privacy", "National Security", "Media/Communications", "Education", "Healthcare/Biotech"]
         gov_ind_pcts = [37, 19, 15, 7, 7, 4, 4, 4, 4]
+        gov_ind, gov_ind_pcts, colors = sort_by_value(gov_ind, gov_ind_pcts)
         fig_gov_ind = go.Figure(go.Pie(
             labels=gov_ind, values=gov_ind_pcts, hole=0.5,
-            marker_colors=[C_GREEN, C_BLUE, C_ORANGE, C_PURPLE, "#ff5b8c", "#ffb85b", "#5bffff", "#a8b8ff", "#ffb8d1"],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
@@ -336,9 +354,10 @@ with st.expander("🏛️ Government Partners", expanded=False):
     with col3:
         gov_exp = ["10+ years", "5-9 years", "3-5 years"]
         gov_exp_pcts = [74, 22, 4]
+        gov_exp, gov_exp_pcts, colors = sort_by_value(gov_exp, gov_exp_pcts)
         fig_gov_exp = go.Figure(go.Pie(
             labels=gov_exp, values=gov_exp_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=10, color="white"),
         ))
@@ -382,9 +401,10 @@ with st.expander("🤝 Mentors", expanded=False):
     with col1:
         mentor_sectors = ["Private", "Research & Academia", "Nonprofit/Advocacy", "Federal Gov", "Other"]
         mentor_pcts = [34, 23, 17, 14, 12]
+        mentor_sectors, mentor_pcts, colors = sort_by_value(mentor_sectors, mentor_pcts)
         fig = go.Figure(go.Pie(
             labels=mentor_sectors, values=mentor_pcts, hole=0.5,
-            marker_colors=[C_ORANGE, C_BLUE, C_GREEN, C_PURPLE, "#6b9a9a"],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
@@ -396,9 +416,10 @@ with st.expander("🤝 Mentors", expanded=False):
     with col2:
         mentor_ind = ["AI", "Public Policy", "Civic/Gov Tech", "Legal", "Cybersecurity", "Energy", "Other"]
         mentor_ind_pcts = [37, 20, 17, 11, 9, 6, 0]
+        mentor_ind, mentor_ind_pcts, colors = sort_by_value(mentor_ind, mentor_ind_pcts)
         fig_mentor_ind = go.Figure(go.Pie(
             labels=mentor_ind, values=mentor_ind_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_ORANGE, C_GREEN, C_PURPLE, "#ff5b8c", "#ffb85b", "#6b9a9a"],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=9, color="white"),
         ))
@@ -410,9 +431,10 @@ with st.expander("🤝 Mentors", expanded=False):
     with col3:
         mentor_exp = ["10+ years", "3-5 years", "1-3 years", "5-9 years"]
         mentor_exp_pcts = [31, 26, 23, 20]
+        mentor_exp, mentor_exp_pcts, colors = sort_by_value(mentor_exp, mentor_exp_pcts)
         fig_mentor_exp = go.Figure(go.Pie(
             labels=mentor_exp, values=mentor_exp_pcts, hole=0.5,
-            marker_colors=[C_BLUE, C_GREEN, C_ORANGE, C_PURPLE],
+            marker_colors=colors,
             textinfo="percent",
             textfont=dict(size=10, color="white"),
         ))
