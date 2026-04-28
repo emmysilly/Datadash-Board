@@ -285,7 +285,7 @@ with st.expander("🎤 Speakers", expanded=False):
             textfont=dict(size=10, color="white"),
         ))
         fig_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Speaker Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
+            title=dict(text="Speakers by Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig_exp, use_container_width=True)
     
@@ -424,7 +424,7 @@ with st.expander("🤝 Mentors", expanded=False):
             textfont=dict(size=9, color="white"),
         ))
         fig_mentor_ind.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Mentor Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
+            title=dict(text="Mentors by Industry", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=True, legend=dict(font=dict(size=9), x=1.05, y=0.5))
         st.plotly_chart(fig_mentor_ind, use_container_width=True)
 
@@ -439,7 +439,7 @@ with st.expander("🤝 Mentors", expanded=False):
             textfont=dict(size=10, color="white"),
         ))
         fig_mentor_exp.update_layout(**PLOTLY_LAYOUT, height=320,
-            title=dict(text="Mentor Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
+            title=dict(text="Mentors by Experience", font=dict(size=14, color="#378ADD"), x=0.5, xanchor="center"),
             showlegend=True, legend=dict(font=dict(size=10), x=1.05, y=0.5))
         st.plotly_chart(fig_mentor_exp, use_container_width=True)
     
